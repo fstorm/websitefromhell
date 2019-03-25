@@ -1,3 +1,23 @@
-div {
-  background-color: #61dafb;
+.bad-form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 60px;
+
+  .labels {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    align-self: flex-start;
+  }
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    align-self: flex-end;
+    > input:focus {
+      outline: none;
+    }
+  }
 }

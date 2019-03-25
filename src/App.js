@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import BadForm from './BadForm';
 
 class App extends Component {
@@ -8,6 +8,7 @@ class App extends Component {
       <div className="App">
         <h1>Create an account</h1>
         <BadForm />
+        <button onClick={(() => {alert('Submitting...');})}>Submit</button>
       </div>
     );
   }
