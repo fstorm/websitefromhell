@@ -1,0 +1,25 @@
+.form--good {
+  display: flex;
+  flex-direction: column;
+
+  .form__elements-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+  }
+}
+
+.form__element {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+
+  input {
+    //margin-left: 10px;
+  }
+}
+
+.radiobutton-group {
+
+}
