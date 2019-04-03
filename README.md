@@ -17,12 +17,13 @@ Examples of screenreader problems that we can force:
 - unclear label - input combinations
 - no or unclear error messages (being read out)
 - loading state not announced
+- no skip to content
 
 Examples of silly navigation problems that we can force:
 - traverse form with first all labels then all input fields
 - massive navigation bar without skip to content link
 - elements that don't receive focus (and thus cannot be navigated to)
-
+- elements without visible focus ()
 
 Examples of silly validation problems that we can force:
 - name must have x characters
@@ -57,4 +58,12 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+###Thoughts
+- What is the best way to do label-input combinations?
+    - if you use aria-labeledby, do you need the label (i.e. set aria-hidden=true on lable)
+    - will this confuse low visibility users?
+- How much of this is about the demo, and how much of this is about 'the talk'/ learning about disability/ disabling
+- Do we want a 'full on workable result' by the end of it, or more a 'here are bad examples here are good examples' kind of experience
+- testing a11y?
 
