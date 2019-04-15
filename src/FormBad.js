@@ -23,6 +23,10 @@ const badForm = () => {
         </div>
       </div>
       <input className="" placeholder="Favorite Color"/>
+      <div className='checkbox-container'>
+        <input type='checkbox'/>
+        <p>I would like to receive a confirmation email!</p>
+      </div>
       <br/>
       <button onClick={(() => {
         alert('Submitting...');

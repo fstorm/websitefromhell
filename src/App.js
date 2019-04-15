@@ -40,6 +40,10 @@ class App extends Component {
                 <input id="radio--green" type='radio' value='green' name='color-radio'/>
                 <label for='radio--green'>Green</label>
               </div>
+            <div className='checkbox-wrapper'>
+              <input id='checkbox-input' name='checkbox-send-confirmation' type='checkbox'/>
+              <label for='checkbox-input'>I would like to receive a confirmation email!</label>
+            </div>
           </div>
         </div>
       </div>
