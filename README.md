@@ -67,3 +67,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Do we want a 'full on workable result' by the end of it, or more a 'here are bad examples here are good examples' kind of experience
 - testing a11y?
 
+
+Usefull document outlining problems currently faced with a11y from a business standpoint (among other things):
+https://www.levelaccess.com/wp-content/uploads/2019/03/2019-State-of-Digital-Accessibility-Report-Final-a11y.pdf
