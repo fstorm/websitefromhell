@@ -1,5 +1,5 @@
 import React from 'react';
-import './FormGood.scss';
+import '../FormGood.scss';
 
 const FormElement = (props) => {
   return (

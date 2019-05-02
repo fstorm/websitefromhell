@@ -7,7 +7,7 @@ const validate = (e) => {
 	}
 };
 
-const badForm = () => {
+const formBad = () => {
   return (
     <div className="bad-form">
       <div className="bad-form__rows">
@@ -36,4 +36,4 @@ const badForm = () => {
   )
 };
 
-export default badForm;
+export default formBad;

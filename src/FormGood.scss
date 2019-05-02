@@ -3,11 +3,17 @@
   flex-direction: column;
 
   *:focus {
-    outline: 3px solid #32a1ce;
+    outline: 3px solid orange;
   }
 
   div {
     padding: 3px;
+  }
+
+  .form__element {
+    input {
+      margin-left: 5px;
+    }
   }
 
   .form__elements-wrapper {
@@ -17,11 +23,11 @@
     width: 300px;
   }
 
-  .checkbox-wrapper{
+  .checkbox-wrapper {
     position: relative;
     width: 500px;
 
-    input{
+    input {
       height: 18px;
       left: 0;
       opacity: 0;
@@ -31,15 +37,15 @@
     }
 
     input:focus + label::before {
-      outline: 3px solid #32a1ce;
+      outline: 3px solid orange;
     }
 
 
-    label{
-      margin-left: 35px;
+    label {
+      margin-left: 28px;
     }
 
-    input+label::before{
+    input+label::before {
       border: 2px solid;
       content: "";
       height: 20px;
@@ -73,10 +79,4 @@
 
 .form__element {
   max-width: 100%;
-  //display: flex;
-  //justify-content: space-evenly;
-}
-
-.radiobutton-group {
-
 }
