@@ -3,7 +3,7 @@ import '../FormGood.scss';
 
 const FormElement = (props) => {
   return (
-    <label className={props.className} aria-hidden={props.ariaHidden}>{props.labelText}
+    <label className={props.className}>{props.labelText}
       {props.children}
     </label>
   )
