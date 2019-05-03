@@ -1,6 +1,18 @@
 .form--good {
   display: flex;
   flex-direction: column;
+  font-size: larger;
+  font-weight: 500;
+
+  *::-moz-selection {
+    background-color: #BA9EB0;
+    color: #ffffff;
+  }
+
+  *::selection {
+    background-color: #BA9EB0;
+    color: #ffffff;
+  }
 
   *:focus {
     outline: 3px solid orange;
@@ -53,6 +65,7 @@
       position: absolute;
       top: 0;
       width: 20px;
+      background-color: lightblue;
     }
 
     label::after {

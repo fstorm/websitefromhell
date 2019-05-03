@@ -1,6 +1,7 @@
 import React from 'react';
 import './FormBad.scss';
 
+// password must be divisible by 3?!
 const validate = (e) => {
 	if (e.target.value.length > 5) {
 		alert('Input too long!');

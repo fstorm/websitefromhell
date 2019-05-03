@@ -35,12 +35,24 @@ const formGood = () => {
       <label for="ice-cream-choice">Choose a flavor:</label>
       <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice"/>
       <datalist id="ice-cream-flavors">
-        <option value="Chocolate"/>
-        <option value="Coconut"/>
-        <option value="Mint"/>
-        <option value="Strawberry"/>
-        <option value="Vanilla"/>
+        <option value="Chocolate" aria-setsize="5" aria-posinset="1"/>
+        <option value="Coconut" aria-setsize="5" aria-posinset="2"/>
+        <option value="Mint" aria-setsize="5" aria-posinset="3"/>
+        <option value="Strawberry" aria-setsize="5" aria-posinset="4"/>
+        <option value="Vanilla" aria-setsize="5" aria-posinset="5"/>
       </datalist>
+
+      <label>
+        Select an option
+        <div>
+          <select>
+            <option value="1" aria-setsize="3" aria-posinset="1">Option 1</option>
+            <option value="2" aria-setsize="3" aria-posinset="2">Option 2</option>
+            <option value="3" aria-setsize="3" aria-posinset="3">Option 3</option>
+          </select>
+        </div>
+      </label>
+
     </div>
   )
 };
