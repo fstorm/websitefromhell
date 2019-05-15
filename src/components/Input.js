@@ -6,7 +6,7 @@ const Input = (props) => {
 };
 
 Input.propTypes = {
-  ariaLabel: PropTypes.string.isRequired,
+  // ariaLabel: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['button', 'checkbox', 'color',
     'date', 'datetime-local', 'email', 'file', 'hidden',
     'image', 'month', 'number', 'password', 'radio', 'range',

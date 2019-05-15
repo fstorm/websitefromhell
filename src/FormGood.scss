@@ -24,8 +24,13 @@
 
   .form__element {
     input {
-      margin-left: 5px;
+      //margin-left: 5px;
+      font-size: 20px;
     }
+  }
+
+  .form-element--wrapper {
+    padding: 8px 0;
   }
 
   .form__elements-wrapper {
@@ -65,7 +70,7 @@
       position: absolute;
       top: 0;
       width: 20px;
-      background-color: lightblue;
+      background-color: white;
     }
 
     label::after {
