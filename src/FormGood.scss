@@ -22,15 +22,13 @@
     padding: 3px;
   }
 
-  .form__element {
-    input {
-      //margin-left: 5px;
-      font-size: 20px;
-    }
-  }
-
   .form-element--wrapper {
     padding: 8px 0;
+    width: 500px;
+    input {
+      margin-left: 5px;
+      font-size: 20px;
+    }
   }
 
   .form__elements-wrapper {
@@ -97,4 +95,33 @@
 
 .form__element {
   max-width: 100%;
+}
+
+.modal--good {
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 24px;
+  background-color: #fff;
+  z-index: 3; /* places the modal on top of everything */
+  position: fixed;
+  top: 25%;
+  left: 0;
+  right: 0;
+  width: 500px;
+  display: none;
+}
+
+.modal-overlay--good {
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* places the modalOverlay between the main page and the modal dialog */
+  background-color: #000;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  margin: 0;
+  padding: 0;
 }

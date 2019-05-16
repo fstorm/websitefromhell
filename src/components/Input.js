@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Input = (props) => {
-  return <input aria-label={props.ariaLabel} type={props.type} name={props.name} aria-required={props.required}/>
+  return <input aria-label={props.ariaLabel} type={props.type} aria-required={props.required}/>
 };
 
 Input.propTypes = {

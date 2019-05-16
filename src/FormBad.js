@@ -74,32 +74,36 @@ class formBad extends React.Component {
           <div className="inputs">
             <input className="first-name--bad"/>
             <input className="last-name--bad"/>
-            <input/>
+            <input className="post-code--bad"/>
           </div>
         </div>
-        <label>Colour selector</label>
-        <div className='radiobutton-group'>
-          <input type='radio' name='color-radio'/>
-          <label>Blue</label>
-          <input type='radio' name='color-radio'/>
-          <label>Yellow</label>
-          <input type='radio' name='color-radio'/>
-          <label>Red</label>
-          <input type='radio' name='color-radio'/>
-          <label>Green</label>
+        <div className="colour-selector--bad">
+          <label>Colour selector</label>
+          <div className='radiobutton-group'>
+            <input type='radio' name='color-radio'/>
+            <label>Blue</label>
+            <input type='radio' name='color-radio'/>
+            <label>Yellow</label>
+            <input type='radio' name='color-radio'/>
+            <label>Red</label>
+            <input type='radio' name='color-radio'/>
+            <label>Green</label>
+          </div>
         </div>
-        <DatePicker
-          selected={this.state.startDate}
-          onChange={this.handleChange}
-        />
+        <div className="date-picker--bad">
+          <label>Delivery date</label>
+          <DatePicker
+            selected={this.state.startDate}
+            onChange={this.handleChange}
+            dateFormat="dd/MM/yyyy"
+          />
+        </div>
         <div className='checkbox-container'>
           <input type='checkbox'/>
           <p>I would like to receive a confirmation email!</p>
         </div>
         <br/>
-        <button onClick={(() => {
-          handleSubmitClick();
-        })}>Submit
+        <button onClick={handleSubmitClick}>Submit
         </button>
         <div className="modal--bad">
           <button onClick={() => closeModal()}>Close</button>
