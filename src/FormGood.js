@@ -1,7 +1,5 @@
 import React from 'react';
 import './FormGood.scss';
-import FormElement from "./components/FormElement";
-import Input from "./components/Input";
 
 const formGood = () => {
 
@@ -29,7 +27,6 @@ const formGood = () => {
     if (e.keyCode === 9) {
           e.preventDefault();
       }
-
     // ESCAPE
     if (e.keyCode === 27) {
       closeModal();
@@ -37,23 +34,17 @@ const formGood = () => {
   };
 
   return (
-    <div className='form__elements-wrapper'>
-      <FormElement className='form__element' labelText='First Name'>
-        <Input type='text' required={true}/>
-      </FormElement>
-      <FormElement className='form__element' labelText='Last Name'>
-        <Input ariaLabel='Last Name' type='text' required={true}/>
-      </FormElement>
-      <FormElement className='form__element' labelText='Post Code'>
-        <Input ariaLabel='Post Code' type='text' required={false}/>
-      </FormElement>
-      <div className="form-element--wrapper">
+    <div className="form--good">
+      <div className="form__element-wrapper"><label className="form__element">First Name<span aria-hidden="true">*</span><input type='text' aria-required="true"/></label></div>
+      <div className="form__element-wrapper"><label className="form__element">Last Name<span aria-hidden="true">*</span><input type='text' aria-required="true"/></label></div>
+      <div className="form__element-wrapper"><label className="form__element">Post Code<input type='text' aria-required="false"/></label></div>
+      <div className="form__element-wrapper">
         <label id="radio_label">Colour selector</label>
-        <div className='radiobutton-group' role='radiogroup' aria-labelledby="radio_label">
-          <label><input id="radio--blue" type='radio' name='color-radio'/>Blue</label>
-          <label><input id="radio--yellow" type='radio' value="yellow" name='color-radio'/>Yellow</label>
-          <label><input id="radio--red" type='radio' value='red' name='color-radio'/>Red</label>
-          <label><input id="radio--green" type='radio' value='green' name='color-radio'/>Green</label>
+        <div className='radio-button-group' role='radiogroup' aria-labelledby="radio_label">
+          <label><input id="radio-button--blue" type='radio' name='color-radio'/>Blue</label>
+          <label><input id="radio-button--yellow" type='radio' value="yellow" name='color-radio'/>Yellow</label>
+          <label><input id="radio-button--red" type='radio' value='red' name='color-radio'/>Red</label>
+          <label><input id="radio-button--green" type='radio' value='green' name='color-radio'/>Green</label>
         </div>
       </div>
       <div className="form-element--wrapper">
@@ -67,12 +58,12 @@ const formGood = () => {
         </div>
       </div>
       <div className="form-element--wrapper">
-        <button className="submit-button--good" aria-label="Submit" onClick={handleSubmitClick}>Submit</button>
+        <button className="submit-button--good" aria-label="Submit information" onClick={handleSubmitClick}>Submit</button>
       </div>
-      <div className="modal--good" role="dialog" aria-labelledby="login">
-        <h1 id="login">TEMPTITLE</h1>
-        <div className="field">
-          <p>TEMPBODY</p>
+      <div className="modal--good" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-body">
+        <h1 id="modal-title">Success</h1>
+        <div className="modal-body">
+          <p>Your application has been received!</p>
         </div>
         <button className="close-button--good" aria-label="Close modal" onClick={handleCloseClick}>Close</button>
       </div>
