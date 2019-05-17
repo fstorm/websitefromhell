@@ -6,73 +6,89 @@ import "react-datepicker/dist/react-datepicker.css";
 let modalToOpen;
 let modalOverlayBad;
 
-const validate = () => {
-  const firstName = document.querySelector(".first-name--bad");
-  const lastName = document.querySelector(".last-name--bad");
-  if (firstName.value.length === 0 || lastName.value.length === 0) {
-    return 'Your name is empty!';
-  } else if (firstName.value.length > 3 || lastName.value.length > 3) {
-    return 'Your name is too long!';
-  } else {
-    return true;
-  }
-};
-
-const openModal = (modalTitle) => {
-  modalTitle === 'Error' ? modalToOpen = document.querySelector('.modal-error--bad') : modalToOpen = document.querySelector('.modal-complete--bad');
-  modalOverlayBad = document.querySelector('.modal-overlay--bad');
-
-  modalToOpen.style.display = 'block';
-  modalOverlayBad.style.display = 'block';
-};
-
-const closeModal = () => {
-  modalToOpen.style.display = 'none';
-  modalOverlayBad.style.display = 'none';
-};
-
-const handleSubmitClick = () => {
-  if (validate() === 'Your name is too long!') {
-    openModal('Error', 'Your name is too long!');
-  } else if (validate() === 'Your name is empty!') {
-    openModal('Error', 'Your name is empty!');
-  } else {
-    openModal('Completed', 'Your request has been submitted!')
-  }
-};
-
-const handleSubmitKeyPress = (e) => {
-  // check for space bar or enter press
-  if (e.keyCode === 32) {
-    handleSubmitClick();
-  }
-  if (e.keyCode === 13) {
-    e.preventDefault();
-    handleSubmitClick();
-  }
-};
-
-const escapeModal = (e) => {
-  if (e.keyCode === 27) {
-    e.preventDefault();
-    closeModal();
-  }
-};
-
 class formBad extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: new Date()
+      startDate: new Date(),
+      overlayMessage: '',
+      overlayTitle: ''
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
+
+  validate = () => {
+    const firstName = document.querySelector(".first-name--bad");
+    const lastName = document.querySelector(".last-name--bad");
+    if (firstName.value.length === 0 || lastName.value.length === 0) {
+      return 'Your name is empty!';
+    } else if (firstName.value.length > 2 || lastName.value.length > 2) {
+      return 'Your name is too long!';
+    } else {
+      return true;
+    }
+  };
+
+  openModal = () => {
+    modalToOpen = document.querySelector('.modal--bad');
+    modalOverlayBad = document.querySelector('.modal-overlay--bad');
+
+    modalToOpen.style.display = 'block';
+    modalOverlayBad.style.display = 'block';
+  };
+
+  closeModal = () => {
+    modalToOpen.style.display = 'none';
+    modalOverlayBad.style.display = 'none';
+  };
+
+  escapeModal = (e) => {
+    console.log('esc');
+    if (e.keyCode === 27) {
+      e.preventDefault();
+      this.closeModal();
+    }
+  };
+
+  handleSubmitClick = () => {
+    if (this.validate() === 'Your name is too long!') {
+      this.setState({
+        overlayTitle: 'Error',
+        overlayMessage: 'Your name is too long!'
+      });
+      this.openModal();
+    } else if (this.validate() === 'Your name is empty!') {
+      this.setState({
+        overlayTitle: 'Error',
+        overlayMessage: 'Your name is empty!'
+      });
+      this.openModal();
+    } else {
+      this.setState({
+        overlayTitle: 'Completed',
+        overlayMessage: 'Your request has been submitted!'
+      });
+      this.openModal()
+    }
+  };
+
+
+  handleSubmitKeyPress = (e) => {
+    // check for space bar or enter press
+    if (e.keyCode === 32) {
+      this.handleSubmitClick();
+    }
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      this.handleSubmitClick();
+    }
+  };
+
   componentDidMount() {
-    document.querySelector('.modal-error--bad').addEventListener('keydown', escapeModal);
-    document.querySelector('.modal-complete--bad').addEventListener('keydown', escapeModal);
-    document.querySelector('.modal-overlay--bad').addEventListener('click', closeModal);
-    document.querySelector('.submit-button--bad').addEventListener('keydown', handleSubmitKeyPress);
+    document.querySelector('.modal--bad').addEventListener('keydown', this.escapeModal);
+    document.querySelector('.modal-overlay--bad').addEventListener('click', this.closeModal);
+    document.querySelector('.submit-button--bad').addEventListener('keydown', this.handleSubmitKeyPress);
   }
 
   handleChange(date) {
@@ -129,17 +145,12 @@ class formBad extends React.Component {
           </div>
         </div>
         <div className="form__element-wrapper form__element-wrapper--center">
-          <div tabIndex='0' className='submit-button--bad' onClick={handleSubmitClick}>Submit</div>
+          <div tabIndex='0' className='submit-button--bad' onClick={this.handleSubmitClick}>Submit</div>
         </div>
-        <div className="modal-error--bad">
-          <h1 className="modal-title--bad">Error</h1>
-          <h2 className="modal-body--bad">Your name is empty!</h2>
-          <button onClick={() => closeModal()}>Close</button>
-        </div>
-        <div className="modal-complete--bad">
-          <h1 className="modal-title--bad">Completed</h1>
-          <h2 className="modal-body--bad">Your request has been submitted!</h2>
-          <button onClick={() => closeModal()}>Close</button>
+        <div className="modal--bad">
+          <h1 className="modal-title--bad">{this.state.overlayTitle}</h1>
+          <h2 className="modal-body--bad">{this.state.overlayMessage}</h2>
+          <button onClick={() => this.closeModal()}>Close</button>
         </div>
         <div className="modal-overlay--bad"/>
       </div>
