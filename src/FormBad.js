@@ -3,7 +3,7 @@ import './FormBad.scss';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-let modalBad;
+let modalToOpen;
 let modalOverlayBad;
 
 const validate = () => {
@@ -18,22 +18,16 @@ const validate = () => {
   }
 };
 
-const openModal = (modalTitle, modalBody) => {
-  modalBad = document.querySelector('.modal--bad');
+const openModal = (modalTitle) => {
+  modalTitle === 'Error' ? modalToOpen = document.querySelector('.modal-error--bad') : modalToOpen = document.querySelector('.modal-complete--bad');
   modalOverlayBad = document.querySelector('.modal-overlay--bad');
 
-  modalBad.insertAdjacentHTML('afterbegin', `<h2 class="modal-body--bad">${modalBody}</h2>`);
-  modalBad.insertAdjacentHTML('afterbegin', `<h1 class="modal-title--bad">${modalTitle}</h1>`);
-
-  modalBad.style.display = 'block';
+  modalToOpen.style.display = 'block';
   modalOverlayBad.style.display = 'block';
 };
 
 const closeModal = () => {
-  modalBad.childNodes[0].remove();
-  modalBad.childNodes[0].remove();
-
-  modalBad.style.display = 'none';
+  modalToOpen.style.display = 'none';
   modalOverlayBad.style.display = 'none';
 };
 
@@ -47,6 +41,24 @@ const handleSubmitClick = () => {
   }
 };
 
+const handleSubmitKeyPress = (e) => {
+  // check for space bar or enter press
+  if (e.keyCode === 32) {
+    handleSubmitClick();
+  }
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    handleSubmitClick();
+  }
+};
+
+const escapeModal = (e) => {
+  if (e.keyCode === 27) {
+    e.preventDefault();
+    closeModal();
+  }
+};
+
 class formBad extends React.Component {
   constructor(props) {
     super(props);
@@ -54,6 +66,13 @@ class formBad extends React.Component {
       startDate: new Date()
     };
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    document.querySelector('.modal-error--bad').addEventListener('keydown', escapeModal);
+    document.querySelector('.modal-complete--bad').addEventListener('keydown', escapeModal);
+    document.querySelector('.modal-overlay--bad').addEventListener('click', closeModal);
+    document.querySelector('.submit-button--bad').addEventListener('keydown', handleSubmitKeyPress);
   }
 
   handleChange(date) {
@@ -112,13 +131,20 @@ class formBad extends React.Component {
         <div className="form__element-wrapper form__element-wrapper--center">
           <div tabIndex='0' className='submit-button--bad' onClick={handleSubmitClick}>Submit</div>
         </div>
-        <div className="modal--bad">
+        <div className="modal-error--bad">
+          <h1 className="modal-title--bad">Error</h1>
+          <h2 className="modal-body--bad">Your name is empty!</h2>
           <button onClick={() => closeModal()}>Close</button>
         </div>
-        <div className="modal-overlay--bad"></div>
+        <div className="modal-complete--bad">
+          <h1 className="modal-title--bad">Completed</h1>
+          <h2 className="modal-body--bad">Your request has been submitted!</h2>
+          <button onClick={() => closeModal()}>Close</button>
+        </div>
+        <div className="modal-overlay--bad"/>
       </div>
     )
   }
-};
+}
 
 export default formBad;
