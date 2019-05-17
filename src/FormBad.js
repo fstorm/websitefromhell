@@ -64,12 +64,12 @@ class formBad extends React.Component {
 
   render() {
     return (
-      <div className="bad-form">
-        <div className="bad-form__rows">
+      <div className="form--bad">
+        <div className="form__element-wrapper form__element-wrapper--bad">
           <div className="labels">
-            <p>First Name*</p>
-            <p>Last Name*</p>
-            <p>Post Code</p>
+            <label>First Name*</label>
+            <label>Last Name*</label>
+            <label>Post Code</label>
           </div>
           <div className="inputs">
             <input className="first-name--bad"/>
@@ -77,34 +77,41 @@ class formBad extends React.Component {
             <input className="post-code--bad"/>
           </div>
         </div>
-        <div className="colour-selector--bad">
-          <label>Colour selector</label>
-          <div className='radiobutton-group'>
-            <input type='radio' name='color-radio'/>
-            <label>Blue</label>
-            <input type='radio' name='color-radio'/>
-            <label>Yellow</label>
-            <input type='radio' name='color-radio'/>
-            <label>Red</label>
-            <input type='radio' name='color-radio'/>
-            <label>Green</label>
+        <div className="form__element-wrapper">
+          <div className="colour-selector--bad">
+            <label>Colour selector</label>
+            <div className='radiobutton-group'>
+              <input type='radio' name='color-radio'/>
+              <label>Blue</label>
+              <input type='radio' name='color-radio'/>
+              <label>Yellow</label>
+              <input type='radio' name='color-radio'/>
+              <label>Red</label>
+              <input type='radio' name='color-radio'/>
+              <label>Green</label>
+            </div>
           </div>
         </div>
-        <div className="date-picker--bad">
-          <label>Delivery date</label>
-          <DatePicker
-            selected={this.state.startDate}
-            onChange={this.handleChange}
-            dateFormat="dd/MM/yyyy"
-          />
+        <div className="form__element-wrapper">
+          <div className="date-picker--bad">
+            <label>Delivery date</label>
+            <DatePicker
+              selected={this.state.startDate}
+              onChange={this.handleChange}
+              dateFormat="dd/MM/yyyy"
+            />
+          </div>
         </div>
-        <div className='checkbox-container'>
-          <input type='checkbox'/>
-          <p>I would like to receive a confirmation email!</p>
+        <div className="form__element-wrapper">
+          <div className='checkbox-container'>
+            <input type='checkbox'/>
+            <label>I would like to receive a confirmation email!</label>
+          </div>
         </div>
-        <br/>
-        <button onClick={handleSubmitClick}>Submit
-        </button>
+        <div className="form__element-wrapper">
+          <button onClick={handleSubmitClick}>Submit
+          </button>
+        </div>
         <div className="modal--bad">
           <button onClick={() => closeModal()}>Close</button>
         </div>

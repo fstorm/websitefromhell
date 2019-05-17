@@ -1,52 +1,113 @@
-.bad-form__rows {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  height: 60px;
-  width: 150px;
+@mixin form($name: 'form') {
+  .#{$name} {
+    &--bad {
+      font-size: larger;
+      font-weight: 500;
+      max-width: 410px;
 
-  .labels {
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-  }
+      .labels {
+        p {
+          padding-top: 2px;
+        }
+      }
+      .first-name--bad {
+        margin-bottom: 8px;
+      }
 
-  .inputs {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    align-self: flex-end;
-    > input:focus {
-      outline: none;
+      .last-name--bad {
+        margin-bottom: 8px;
+      }
+
+      .post-code--bad {
+        margin-bottom: 8px;
+      }
+
+      .colour-selector--bad {
+        padding: 4px 0;
+      }
+
+      > button {
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .date-picker--bad {
+        margin: 5px 0;
+        label {
+          padding-right: 5px;
+        }
+      }
+
+      .checkbox-container {
+        display: flex;
+      }
+
+    }
+
+    &__element-wrapper--bad {
+      padding: 0 0 15px 0;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      height: 90px;
+      width: 150px !important;
+
+      .labels {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+
+        label {
+          padding-bottom: 12px;
+        }
+      }
+
+      .inputs {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        align-self: flex-end;
+        > input:focus {
+          outline: none;
+        }
+      }
+
     }
   }
 }
 
-.modal--bad {
-  border-radius: 4px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 24px;
-  background-color: #fff;
-  z-index: 3; /* places the modal on top of everything */
-  position: fixed;
-  top: 25%;
-  left: 0;
-  right: 0;
-  width: 500px;
-  display: none;
+@mixin modal($name: 'modal') {
+  .#{$name} {
+    &--bad {
+      border-radius: 4px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 24px;
+      background-color: #fff;
+      z-index: 3; /* places the modal on top of everything */
+      position: fixed;
+      top: 25%;
+      left: 0;
+      right: 0;
+      width: 500px;
+      display: none;
+    }
+    &-overlay--bad {
+      width: 100%;
+      height: 100%;
+      z-index: 2; /* places the modalOverlay between the main page and the modal dialog */
+      background-color: #000;
+      opacity: 0.5;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
 }
 
-.modal-overlay--bad {
-  width: 100%;
-  height: 100%;
-  z-index: 2; /* places the modalOverlay between the main page and the modal dialog */
-  background-color: #000;
-  opacity: 0.5;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: none;
-  margin: 0;
-  padding: 0;
-}
+@include form;
+@include modal;

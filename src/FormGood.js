@@ -47,17 +47,17 @@ const formGood = () => {
           <label><input id="radio-button--green" type='radio' value='green' name='color-radio'/>Green</label>
         </div>
       </div>
-      <div className="form-element--wrapper">
+      <div className="form__element-wrapper">
         <label for="dDate">Delivery date</label>
         <input type="date" id="dDate" className="date-picker"/>
       </div>
-      <div className="form-element--wrapper">
+      <div className="form__element-wrapper">
         <div className='checkbox-wrapper'>
           <input id='checkbox-input' name='checkbox-send-confirmation' type='checkbox'/>
           <label for='checkbox-input'>I would like to receive a confirmation email!</label>
         </div>
       </div>
-      <div className="form-element--wrapper">
+      <div className="form__element-wrapper">
         <button className="submit-button--good" aria-label="Submit information" onClick={handleSubmitClick}>Submit</button>
       </div>
       <div className="modal--good" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-body">
