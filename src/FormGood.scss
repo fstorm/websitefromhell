@@ -9,18 +9,8 @@
       font-size: larger;
       font-weight: 500;
 
-      *::-moz-selection {
-        background-color: #BA9EB0;
-        color: #ffffff;
-      }
-
-      *::selection {
-        background-color: #BA9EB0;
-        color: #ffffff;
-      }
-
       *:focus {
-        outline: 3px solid orange;
+        outline: 4px solid lightblue;
       }
     }
 
@@ -28,9 +18,17 @@
       &-wrapper {
         padding: 10px 0;
         width: 500px;
+        //display: flex;
+        //justify-content: space-between;
+        
         input {
           margin-left: 5px;
           font-size: 20px;
+        }
+
+        &--center {
+          display: flex;
+          justify-content: center;
         }
       }
     }
@@ -53,7 +51,7 @@
       }
 
       input:focus + label::before {
-        outline: 3px solid orange;
+        outline: 3px solid lightblue;
       }
 
       label {
@@ -126,6 +124,28 @@
   }
 }
 
+@mixin submit-button($name: 'submit-button') {
+  .#{$name} {
+    &--good {
+      text-align: center;
+      width: 80px;
+      border: black 2px solid;
+      background-color: white;
+      border-radius: 4px;
+      padding: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover,
+      &:focus {
+        background-color: black;
+        color: white;
+      }
+    }
+  }
+}
+
 @include form;
 @include checkbox;
 @include modal;
+@include submit-button;

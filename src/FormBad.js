@@ -109,9 +109,8 @@ class formBad extends React.Component {
             <label>I would like to receive a confirmation email!</label>
           </div>
         </div>
-        <div className="form__element-wrapper">
-          <button onClick={handleSubmitClick}>Submit
-          </button>
+        <div className="form__element-wrapper form__element-wrapper--center">
+          <div tabIndex='0' className='submit-button--bad' onClick={handleSubmitClick}>Submit</div>
         </div>
         <div className="modal--bad">
           <button onClick={() => closeModal()}>Close</button>
