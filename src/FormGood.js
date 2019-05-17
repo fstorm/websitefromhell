@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './FormGood.scss';
 
 const formGood = () => {
+
+  useEffect(() => {
+    document.title='Flower delivery form';
+  });
 
   const handleSubmitClick = () => {
     document.querySelector('.modal--good').style.display = 'block';
@@ -35,6 +39,7 @@ const formGood = () => {
 
   return (
     <div className="form--good">
+      <div className="form__element-wrapper"><h1>Flower delivery form</h1></div>
       <div className="form__element-wrapper"><label className="form__element">First Name<span aria-hidden="true">*</span><input type='text' aria-required="true"/></label></div>
       <div className="form__element-wrapper"><label className="form__element">Last Name<span aria-hidden="true">*</span><input type='text' aria-required="true"/></label></div>
       <div className="form__element-wrapper"><label className="form__element">Post Code<input type='text' aria-required="false"/></label></div>

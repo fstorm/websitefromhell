@@ -1,58 +1,10 @@
-.App {
-  padding: 6px 50px 25px;
-  background-color: rgb(148,191,249);
-
-  p {
-    padding: 0;
-    margin: 0;
-  }
-
-  .form--bad {
-
-    font-size: larger;
-    font-weight: 500;
-
-    .bad-form__rows {
-      padding: 0 0 15px 0;
-    }
-
-    .labels {
-      p {
-        padding-top: 2px;
-      }
-    }
-
-    .first-name--bad {
-      margin-bottom: 8px;
-    }
-
-    .last-name--bad {
-      margin-bottom: 8px;
-    }
-
-    .post-code--bad {
-      margin-bottom: 8px;
-    }
-
-    .colour-selector--bad {
-      padding: 4px 0;
-    }
-
-    > button {
-      &:focus {
-        outline: none;
-      }
-    }
-
-    .date-picker--bad {
-      margin: 5px 0;
-      label {
-        padding-right: 5px;
-      }
-    }
-
-    .checkbox-container {
-      display: flex;
-    }
+@mixin app($name: 'app') {
+  .#{$name} {
+    background-color: rgb(148,191,249);
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
   }
 }
+
+@include app;

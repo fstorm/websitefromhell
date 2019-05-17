@@ -65,6 +65,7 @@ class formBad extends React.Component {
   render() {
     return (
       <div className="form--bad">
+        <div className="form__element-wrapper"><h1>Flower delivery form</h1></div>
         <div className="form__element-wrapper form__element-wrapper--bad">
           <div className="labels">
             <label>First Name*</label>

@@ -2,23 +2,14 @@ import React, {Component} from 'react';
 import './App.scss';
 import FormBad from './FormBad';
 import FormGood from './FormGood';
+import {Route} from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>Form examples</h1>
-        <hr/>
-        <div className="form--bad">
-          <h2>Bad example</h2>
-          <FormBad/>
-        </div>
-        <hr/>
-        <div className='form--good'>
-          <h2>Good example</h2>
-          <FormGood/>
-        </div>
-        <hr/>
+      <div className='app'>
+        <Route path='/good' component={FormGood}/>
+        <Route path='/bad' component={FormBad}/>
       </div>
     );
   }
