@@ -17,6 +17,11 @@ class formBad extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentDidMount() {
+    document.querySelector('.modal--bad').addEventListener('keydown', this.escapeModal);
+    document.querySelector('.modal-overlay--bad').addEventListener('click', this.closeModal);
+    document.querySelector('.submit-button--bad').addEventListener('keydown', this.handleSubmitKeyPress);
+  }
 
   validate = () => {
     const firstName = document.querySelector(".first-name--bad");
@@ -84,12 +89,6 @@ class formBad extends React.Component {
       this.handleSubmitClick();
     }
   };
-
-  componentDidMount() {
-    document.querySelector('.modal--bad').addEventListener('keydown', this.escapeModal);
-    document.querySelector('.modal-overlay--bad').addEventListener('click', this.closeModal);
-    document.querySelector('.submit-button--bad').addEventListener('keydown', this.handleSubmitKeyPress);
-  }
 
   handleChange(date) {
     this.setState({
