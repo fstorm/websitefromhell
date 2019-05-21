@@ -8,6 +8,7 @@
       width: 300px;
       font-size: larger;
       font-weight: 500;
+      opacity: 0.8;
 
       *:focus {
         outline: 4px solid lightblue;
@@ -18,9 +19,12 @@
       &-wrapper {
         padding: 10px 0;
         width: 500px;
-        //display: flex;
-        //justify-content: space-between;
-        
+
+        &--good {
+          display: flex;
+          flex-direction: inherit;
+        }
+
         input {
           margin-left: 5px;
           font-size: 20px;
@@ -30,6 +34,12 @@
           display: flex;
           justify-content: center;
         }
+      }
+    }
+
+    &__input-field {
+      &--error {
+        color: red;
       }
     }
   }

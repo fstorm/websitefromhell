@@ -72,12 +72,11 @@ class formBad extends React.Component {
     } else {
       this.setState({
         overlayTitle: 'Completed',
-        overlayMessage: 'Your request has been submitted!'
+        overlayMessage: 'Your form has been submitted!'
       });
       this.openModal()
     }
   };
-
 
   handleSubmitKeyPress = (e) => {
     // check for space bar or enter press
@@ -114,7 +113,7 @@ class formBad extends React.Component {
         </div>
         <div className="form__element-wrapper">
           <div className="colour-selector--bad">
-            <label>Colour selector</label>
+            <label>Flower colour selector</label>
             <div className='radiobutton-group'>
               <input type='radio' name='color-radio'/>
               <label>Blue</label>
@@ -140,7 +139,7 @@ class formBad extends React.Component {
         <div className="form__element-wrapper">
           <div className='checkbox-container'>
             <input type='checkbox'/>
-            <label>I would like to receive a confirmation email!</label>
+            <label>I would not like to receive a confirmation email!</label>
           </div>
         </div>
         <div className="form__element-wrapper form__element-wrapper--center">
