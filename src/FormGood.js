@@ -14,10 +14,8 @@ const formGood = () => {
     lastNameInvalidCharactersAudio: 'Error: Your last name can not contain explanation point, question mark or semi colon',
   };
 
-  const regex = /[(\?\!;)]/g;
+  const regex = /[(?!;)]/g;
 
-  const [firstNameErrorMessage, setFirstNameErrorMessage] = useState('');
-  const [lastNameErrorMessage, setLastNameErrorMessage] = useState('');
   const [firstNameErrorMessageAudio, setFirstNameErrorMessageAudio] = useState('');
   const [lastNameErrorMessageAudio, setLastNameErrorMessageAudio] = useState('');
 
@@ -75,18 +73,15 @@ const formGood = () => {
     const invalidCharactersFound = firstNameInput.value.match(regex) || [];
 
     if (firstNameInput.value === '') {
-      setFirstNameErrorMessage(validationMessages.firstNameEmpty);
       setFirstNameErrorMessageAudio(validationMessages.firstNameEmptyAudio);
       firstNameInput.focus();
       return false;
     } else if (invalidCharactersFound.length !== 0) {
-      setFirstNameErrorMessage(validationMessages.firstNameInvalidCharactersVisual);
       setFirstNameErrorMessageAudio(validationMessages.firstNameInvalidCharactersAudio);
       firstNameInput.focus();
       return false;
     }
     else {
-      setFirstNameErrorMessage('');
       setFirstNameErrorMessageAudio('');
       return true;
     }
@@ -98,18 +93,15 @@ const formGood = () => {
     const invalidCharactersFound = lastNameInput.value.match(regex) || [];
 
     if (lastNameInput.value === '') {
-      setLastNameErrorMessage(validationMessages.lastNameEmpty);
       setLastNameErrorMessageAudio(validationMessages.lastNameEmptyAudio);
       lastNameInput.focus();
       return false;
     } else if (invalidCharactersFound.length !== 0) {
-      setLastNameErrorMessage(validationMessages.lastNameInvalidCharactersVisual);
       setLastNameErrorMessageAudio(validationMessages.lastNameInvalidCharactersAudio);
       lastNameInput.focus();
       return false;
     }
     else {
-      setLastNameErrorMessage('');
       setLastNameErrorMessageAudio('');
       return true;
     }
