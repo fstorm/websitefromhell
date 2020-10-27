@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## About this project/ Mission statement
 The idea behind this project is to demonstrate, among other things, how poorly designed websites/ interfaces can lead to disabling users through, for example, poor accessibility engineering.<br>
 We want to demonstrate to colleges how not design websites by having them attempt to navigate a purposely poorly build website/ form.<br>
@@ -31,6 +29,7 @@ Examples of silly validation problems that we can force:
 - name must have middle name
 - date of birth must be on x
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
